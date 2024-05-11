@@ -2,6 +2,8 @@
 using DataAccess.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
+using Services.DataServices;
+using Services.DataServices.Implementation;
 
 namespace Services.DI
 {
@@ -19,7 +21,8 @@ namespace Services.DI
         {
             services.AddAutoMapper(typeof(ApplicationAutoMapperProfile).Assembly);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+            services.AddScoped<IGenresDataService, GenresDataService>();
+
             return services;
         }
     }
